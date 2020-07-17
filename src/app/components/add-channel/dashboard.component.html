@@ -1,0 +1,10 @@
+<div class="navdiv">
+  <input type="text" placeholder="channel Name" class="input" [(ngModel)]="channelName">
+
+  <button class="add-button">Add</button><!--will open the chat window-->
+<div class="lowerdiv">
+
+</div>
+</div>
+<div class="headerbox">{{twillio.conn("f")}}<app-chatbox></app-chatbox></div>
+<div class="chatbox"><app-chatbox></app-chatbox></div>

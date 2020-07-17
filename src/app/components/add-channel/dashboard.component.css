@@ -1,0 +1,41 @@
+.navdiv
+{
+  position: absolute;
+  border: 5px solid grey;
+  width: 200px;
+  height: 720px;
+}
+.input
+{
+  border: 2px solid beige;
+}
+.addbutton
+{
+  background-color: blue;
+}
+
+.lowerdiv
+{
+  height: 650px;
+border: 3px solid blue;
+}
+.headerbox
+{
+  height: 70px;
+  width: 1320px;
+  margin-left: 200px;
+  float: left;
+  background: 40px solid;
+  display: inline-block;
+  border: 5px solid brown;
+}
+.chatbox
+{
+  height: 650px;
+  width: 1320px;
+  margin-left: 200px;
+  float: left;
+  background: 40px solid;
+  display: inline-block;
+  border: 10px solid pink;
+}
