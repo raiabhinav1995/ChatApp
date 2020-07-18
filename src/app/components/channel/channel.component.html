@@ -1,1 +1,3 @@
-<p>channel works!</p>
+<div *ngFor="let channel of channelList">
+  <a class="channelname" (click)="openChatRoom()">{{channel.unique_name}}<button (click)="deleteRoom(channel.sid)">Delete</button></a>
+  </div>

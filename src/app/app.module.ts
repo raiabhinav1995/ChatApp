@@ -10,14 +10,19 @@ import { AuthService } from './shared/services/auth.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { DashboardComponent } from './components/add-channel/dashboard.component';
-import { ChatboxComponent } from './components/chat-header/chatbox.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ChatboxComponent } from './components/chat-box/chatbox.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ChannelComponent } from './components/channel/channel.component';
+import { ChatHeaderComponent } from './components/chat-header/chat-header.component';
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     DashboardComponent,
-    ChatboxComponent
+    ChatboxComponent,
+    ChannelComponent,
+    ChatHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { ChatboxComponent } from './components/chat-header/chatbox.component';
     AngularFireModule.initializeApp(environment.firebase1),
     AngularFireAuthModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AuthService, TwillioService],
   bootstrap: [AppComponent]

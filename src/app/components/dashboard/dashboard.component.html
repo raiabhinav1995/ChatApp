@@ -1,0 +1,15 @@
+<div class="navdiv">
+  <input type="text" placeholder="channel Name" class="input" [(ngModel)]="channelName">
+
+  <button class="add-button" (click)="addChannel(channelName);addMember(channelName)">Add</button><!--will open the chat window-->
+  <!-- <button class="add-button" click="getChannelList()">Get List</button> -->
+  <div class="lowerdiv">
+  <app-channel></app-channel>
+</div>
+</div>
+<div class="chatheader">
+<app-chat-header></app-chat-header>
+</div>
+<div class="chatbox">
+  <app-chatbox *ngIf="twillio.shallLoadChatBox"></app-chatbox>
+</div>
