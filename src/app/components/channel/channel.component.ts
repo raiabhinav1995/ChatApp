@@ -19,39 +19,18 @@ export class ChannelComponent implements OnInit {
 
   async getChannelList()
   {
-    // this.twilio.getChannels().subscribe(res=>{
-    //   //console.log(res.channels);
-    //   for(let items of res.channels)
-    //   {
-    //     //if(>0)
-    //     {//console.log(items);
-    //       //console.log(''+items.unique_name);
-    //       //console.log(''+items['sid']);
-    //       //this.twilio.deleteChannel(items['sid']).subscribe(res=>console.log(res));
-    //       items['members_count'] || this.channelList.push(items);}
-    //   }
-    // });
-    // console.log('channels list', this.channelList);
-    this.twilio.getChannelList().subscribe((res)=>
+    this.twilio.getChannelList().subscribe((res: any)=>
     {
-      this.channelList=res;
-    });
-    console.log(this.channelList);
-    // this.channelList.forEach(function print(entry) {
-    //   console.log(entry);
-
-    // });
-    for(let channel of this.channelList)
+      console.log(res, res.channels);
+      //this.channelList=res.channels ;
+      for(let channel of res.channels)
     {
       console.log('test');
       console.log(channel);
+      channel.members_count && this.channelList.push(channel);
     }
-    for(let i=0;i<this.channelList.length;i++)
-    {
-      console.log('test');
-      console.log(this.channelList[i]);
-    }
-
+    console.log(this.channelList);
+    });
 
   }
   openChatRoom()

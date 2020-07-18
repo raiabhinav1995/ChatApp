@@ -73,15 +73,15 @@ UserName=environment.Twillio.Auth_Token ;
     let channelList:any=[];
     channelList =this.getChannelList();
     console.log(channelList);
-    for(const channel of channelList)
-    {
-      console.log(channel);
-      //channel: any;
-      if(channel['unique_name']===channel)
-      {
-        return channel['sid'];
-      }
-    }
+    // for(const channel of channelList)
+    // {
+    //   console.log(channel);
+    //   //channel: any;
+    //   if(channel['unique_name']===channel)
+    //   {
+    //     return channel['sid'];
+    //   }
+    // }
     //return 1;
   }
 
@@ -127,9 +127,9 @@ UserName=environment.Twillio.Auth_Token ;
     console.log('member added');
     return this.httpClient.post(this.apiUrl+this.serviceId+"/Channels/"+''+sid+"/Members/",param,this.HttpOptions);
   }
-  getChannelList()
+  getChannelList() : Observable<any>
   {
-    let channelList=[];
+    //let channelList=[];
     return this.httpClient.get(this.apiUrl+this.serviceId+"/Channels", this.HttpOptions).pipe(map(data=>data));
   }
 
