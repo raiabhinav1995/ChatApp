@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(public twillio: TwillioService)
   {
-    this.result=twillio.hitApi().subscribe((data)=>
+    this.result=twillio.getDataFromTwilioApi$().subscribe((data)=>
     {
       //console.log(data);
     });
@@ -29,7 +29,11 @@ export class DashboardComponent implements OnInit {
   }
   addChannel(name)
   {console.log('added', name);
-    this.twillio.createChannel(name).subscribe(data=>console.log(data));
+    this.twillio.createTwilioChannel$(name).subscribe(data=>{
+      this.addMember(data['sid']);
+
+
+    });
     //location.reload();
 
   }
@@ -39,7 +43,7 @@ export class DashboardComponent implements OnInit {
   }
   addMember(name)
   {
-    this.twillio.addMember(name).subscribe(data=>console.log(data));
+    this.twillio.addMemberToChannel$(name).subscribe(data=>console.log("data returned "+data));
   }
 
 }
